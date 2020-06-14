@@ -1,0 +1,59 @@
+#:import STRINGS strings.STRINGS
+#:import TOOLBARCOLOR settings.TOOLBARCOLOR
+<GirisSayfasi>:
+    BoxLayout:
+        orientation:'vertical'
+
+        MDToolbar:
+            id: toolbar
+            title: STRINGS['toolbarTitle']
+            md_bg_color: TOOLBARCOLOR
+
+        MDBottomNavigation:
+            id: panel
+
+            MDBottomNavigationItem:
+                name: 'item1'
+                text: STRINGS['MDBNI1Text']
+                icon: STRINGS['MDBNI1Icon']
+
+                MDScrollViewRefreshLayout:
+
+                    id: refresh_layout
+                    refresh_callback: root.refresh_callback
+                    root_layout: root
+
+                    GridLayout:
+                        id: grid_card
+                        cols: 1
+                        spacing: dp(0)
+                        padding: dp(0)
+                        size_hint_y: None
+                        height: self.minimum_height
+
+            MDBottomNavigationItem:
+                name: 'item2'
+                text: STRINGS['MDBNI2Text']
+                icon: STRINGS['MDBNI2Icon']
+                
+                ScrollView:
+
+                    MDList:
+                        id: scroll
+
+            MDBottomNavigationItem:
+                name: 'item3'
+                text: STRINGS['MDBNI3Text']
+                icon: STRINGS['MDBNI3Icon']
+
+                BoxLayout:
+                    orientation: 'vertical'
+                    padding: dp(5)
+                    MDTextField:
+                        id: search_list_ti
+                        hint_text: STRINGS['TextInputHint']
+                        keyboard_on_key_up: root.searchInList
+                    ScrollView:
+                        MDList:
+                            id: search_list
+                            height: self.minimum_height

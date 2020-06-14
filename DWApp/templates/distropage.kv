@@ -1,0 +1,29 @@
+#:import TOOLBARCOLOR settings.TOOLBARCOLOR
+      
+<DistroPage>:
+
+    BoxLayout:
+
+        id: distro_page_base
+        orientation: 'vertical'
+
+        MDToolbar:
+            id: toolbar
+            title: root.name
+            md_bg_color: TOOLBARCOLOR
+            left_action_items: [['arrow-left',root.back]]
+
+        MDSwiperManager:
+            id: logo
+            size_hint_y: 0.4
+
+        MDSwiperPagination:
+            id: logo_paginator
+
+        ScrollView:
+            size_hint_y: 0.7
+            MDList:
+                id: distro_info
+                size_hint_y: None
+                height: self.minimum_height
+            
